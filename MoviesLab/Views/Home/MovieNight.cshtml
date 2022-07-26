@@ -1,0 +1,31 @@
+﻿@model List<MovieModel>
+
+
+<h1> Search 3 Movies at a Time </h1> 
+
+
+<form method="post" asp-action="MovieNight">
+	Title 1 <input type="text" name="title1" />
+	Title 2 <input type="text" name="title2" />
+	Title 3 <input type="text" name="title3" />
+	<input type="submit" />
+
+</form>
+
+<div style="margin:auto">
+	@{
+		if (Model != null)
+		{
+			foreach (MovieModel m in Model)
+			{
+				<h1> @m.Title </h1>
+				<h2> Genre(s): @m.Genre </h2>
+
+				<p> @m.Year, Rated @m.Rated, Directed by @m.Director</p>
+			}
+		}
+
+	}
+
+
+</div>
